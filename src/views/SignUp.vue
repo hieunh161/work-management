@@ -3,7 +3,13 @@
     <p>Let's create an account !</p>
     <input type="text" v-model="email" name="email" id="user_email" placeholder="Email">
     <br>
-    <input type="password" v-model="password" name="password" id="user_password" placeholder="Password">
+    <input
+      type="password"
+      v-model="password"
+      name="password"
+      id="user_password"
+      placeholder="Password"
+    >
     <br>
     <button @click="signUp">Sign Up</button>
     <span>
@@ -30,11 +36,11 @@ export default {
         .auth()
         .createUserWithEmailAndPassword(this.email, this.password)
         .then(
-          (user) => {
+          user => {
             // alert("your account has been created");
-            this.$router.replace('home')
+            this.$router.replace("home");
           },
-          (err) => {
+          err => {
             alert("Oops. " + err.message);
           }
         );
